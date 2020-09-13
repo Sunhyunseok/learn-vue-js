@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Vue component 를 만들고 app-header태그에 적용-->
+        <app-header></app-header>
+        <app-content></app-content>
+        <app-footer></app-footer>
+        <p>where?</p>
+    </div>
+    <div id="app2">
+        <app-header></app-header>
+        <app-footer></app-footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //전역 컴포넌트 등록
+        //Vue.component('컴포넌트 이름','컴포넌트 내용');
+        Vue.component('app-header',{
+            template: '<h1>Header</h1>'
+        });
+        Vue.component('app-content',{
+            //template - component가 표현되는 markup
+            template: '<p>content</p>'
+        });
+        new Vue({
+            //instacne를 생성해서 el에 해당하는 태그에 붙임
+            el: '#app',
+            //지역 컴포넌트 등록
+            components: {
+                //'key': 'value'
+                //'컴포넌트 이름': '컴포넌트 내용'
+                'app-footer':{
+                    template : '<footer>Footer</footer>'
+                }
+            }
+        });
+        //인스턴스를 생성 -> Root Component(부모 컴포넌트)
+        new Vue({
+            el: '#app2'
+        });
+        //전역컴포넌트는 인스턴스를 생성하지 않아도 모든 인스턴스에 등록됨
+        //지역컴포넌트는 인스턴스마다 새로 생성해야함(app-footer는 app2에 안나오겠지)
+    </script>
+</body>
+</html>

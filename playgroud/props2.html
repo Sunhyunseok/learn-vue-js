@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app2">
+        <app2-header v-bind:propsdata="message"></app2-header>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        var appHeader ={
+            template: '<h1>{{ propsdata }}</h1>',
+            props:['propsdata']
+        }
+        new Vue({
+            el: '#app2',
+            components:{
+                'app2-header': appHeader
+            },
+            data:{
+                message:'hi'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //vue instance
+        //body 안에서 app이라고 태그되있는 인스턴스 생성
+        var vm= new Vue({
+            el : '#app',
+            data:{message:'hi'}
+        });
+    //Vue 를 왜 instance로 사용?
+    //미리 만들어진 기능 (재)사용
+
+    
+        
+    var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hi'
+            },
+            methood: {
+
+            }
+        });
+
+    </script>
+</body>
+
+</html>

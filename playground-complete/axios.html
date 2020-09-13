@@ -26,10 +26,13 @@
         getData: function() { 
           var vm = this;
           axios.get('https://jsonplaceholder.typicode.com/users/')
+            
+            //성공하면 -> then
             .then(function(response) {
               console.log(response.data);
               vm.users = response.data;
             })
+            //실패하면 catch
             .catch(function(error) {
               console.log(error);
             });
