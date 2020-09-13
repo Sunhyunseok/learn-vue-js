@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .warning{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <p v-bind:class="cname">Hello</p> -->
+        <p>p태그의 클래스는 isError가 true일 때는 warning</p>
+        <!-- <p v-bind:class="{warning: isError}">Hello</p> -->
+        <p>템플릿 표현식에서 로직을 넣지말고 computed속성을 이용하자</p>
+        <p v-bind:class="errorTextColor">Hello</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                // cname:'blue-text',
+                // isError라는 boolean값에 따라서 class name을 넣거나 안넣거나
+                isError:false
+            },
+            //computed 에서 데이터 속성 가져오려면 this. 까먹지말자
+            computed:{
+                errorTextColor: function(){
+                    //isError ? true : false
+                    return this.isError ? 'warning' : null;
+                    // if (isError){
+                    //     return 'warning';
+                    // } else {
+                    //     return null;
+                    // }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
