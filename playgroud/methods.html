@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 버튼을 클릭했을 때 logText event 처리하기 -->
+        <button v-on:click="logText">click me</button>
+        <!-- 키보드 입력했을 때 처리 해보기 -->
+        <input type="text" v-on:keyup.enter="logText" placeholder="only enter">
+        <input type="text" v-on:keypress="logText" placeholder="key press">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            methods:{
+                logText: function(){
+                    console.log('clicked');
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
